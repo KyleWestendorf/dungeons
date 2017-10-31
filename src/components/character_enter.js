@@ -1,53 +1,5 @@
 import React, { Component } from 'react';
 
-<php?
-if (isset($_POST['submit']))
-{
-
-	require "../config.php";
-  require "../common.php";
-
-	try
-	{
-		$connection = new PDO($dsn, $username, $password, $options);
-    $new_user = array(
-  	"characterName" => $_POST['characterName'],
-  	"characterClass"  => $_POST['characterClass'],
-  	"characterLvl"     => $_POST['characterLvl '],
-  	"characterStrength"   => $_POST['characterStrength'],
-  	"characterDexterity"  => $_POST['characterDexterity']
-    "characterConstitution"  => $_POST['characterConstitution']
-    "characterWisdom"  => $_POST['characterWisdom']
-    "characterIntelligence"  => $_POST['characterIntelligence']
-    "characterCharisma"  => $_POST['characterCharisma']
-  );
-
-  $sql = sprintf(
-  		"INSERT INTO %s (%s) values (%s)",
-  		"characterdata",
-  		implode(", ", array_keys($new_user)),
-  		":" . implode(", :", array_keys($new_user))
-  );
-
-    $statement = $connection->prepare($sql);
-    $statement->execute($new_user);
-	}
-
-	catch(PDOException $error)
-	{
-		echo $sql . "<br>" . $error->getMessage();
-	}
-
-}
-?>
-
-<?php
-if (isset($_POST['submit']) && $statement)
-{ ?>
-	<blockquote><?php echo $_POST['firstname']; ?> successfully added.</blockquote>
-<?php
-} ?>
-
 export default class App extends Component {
 
 
